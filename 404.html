@@ -5,11 +5,17 @@
     <title>redirecting to docs.pawsql.com</title>
 </head>
     <script language="javascript">
+        let lan = navigator.systemLanguage || navigator.language;
+        var lang = "en";
+        if(lan.toLowerCase().indexOf('zh')!==-1){
+          console.log('当前浏览器默认语言为中文');
+          lang = "zh";
+        }
         var domain = "docs.pawsql.com";
         var current = window.location.href;
         var target = current.substring(current.indexOf('/', current.indexOf(':') + 3));
-        window.location.href = "//" + domain + target;
-        location.href = "//" + domain + target;
+        window.location.href = "//" + domain + target + "/" + lang;
+        location.href = "//" + domain + target + "/" + lang;
     </script>
     <body>
         redirecting to docs.pawsql.com ...
